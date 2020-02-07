@@ -7,49 +7,103 @@
 }
 
 .board{
-  height: 660px;
-  width: 660px;
-  background-color: #ecf0f1;
+  height: 80vh;
+  width: 80vh;
+  background-color: black;
   position: absolute;
-  margin-left: 35%;
-  margin-top: 10%;
+  margin-left: 20vw;
+  margin-top: 10vh;
   display: flex;
   flex-wrap: wrap;
 }
 
+.dashboard{
+  height: 80vh;
+  width: 20vh;
+  background-color: white;
+  position: absolute;
+  margin-left: 70vw;
+  margin-top: 10vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashInner{
+  width: 28vh;
+  height: 50vh;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .yard{
-  height:264px;
-  width:264px;
-  background-color: #1abc9c;
+  height:32vh;
+  width:32vh;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerYard{
+  height:30vh;
+  width:30vh;
+  background-color: white;
+}
+
+#red{
+  margin-left: 2vh;
+}
+
+#yellow{
+  margin-top: 2vh;
+  margin-left: 2vh;
+}
+
+#green{
+  margin-top: 2vh;
+}
+
+.token{
+  height: 4vh;
+  width: 4vh;
+  border-radius: 2vh;
+  background-color: red;
 }
 
 .vPlayField{
-  height: 264px;
-  width: 132px;
-  background-color: #3498db;
+  height: 32vh;
+  width: 16vh;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
 }
 
 .hPlayField{
-  width: 264px;
-  height: 132px;
-  background-color: #9b59b6;
+  width: 32vh;
+  height: 16vh;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
 }
 
 .finishSquare{
-  width:132px;
-  height:132px;
-  background-color: #e67e22;
+  width:16vh;
+  height:16vh;
+  background-color: black;
 }
 
 .tile{
-  height: 40px;
-  width: 40px;
+  height: 4.8vh;
+  width: 4.8vh;
   background-color: white;
-  border: 2px;
+  border: 0.24vh;
   border-color: black;
   border-style: solid;
+}
+
+.diceButton{
+  height: 5vh;
 }
