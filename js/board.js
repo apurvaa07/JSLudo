@@ -15,18 +15,52 @@ function getPath(color){
 }
 
 var globalPlayerNumber = 0;
+var diceValue = undefined;
 
 function rollDice(){
   var dice = Math.random() * 6;
   dice = Math.floor(dice) + 1;
   var diceFace = document.getElementById("DF");
   diceFace.innerHTML = dice;
+  diceValue = dice;
   return dice;
 }
 
+function startGame(){
+  var nOP = document.getElementById("dashIP");
+  if(nOP.value !== ""){
+    board = new Board(parseInt(nOP.value));
+    board.drawBoard();
+    board.initPlayers();
+    board.initTokens();
+  }
+}
+
 function tokenClicked(e,token){
-  console.log(e.target.id);
-  console.log(board);
+  // console.log(e.target.id);
+  // console.log(board.tokenList[e.target.id]);
+  // var token = board.tokenList[e.target.id];
+  // var DOMParent = token.DOMParent;
+  // var DOMElem = token.DOMElem;
+  // DOMParent.removeChild(DOMElem);
+  // var currPos = token.position;
+  // if(diceValue + currPos - 1 < token.path.length){
+  //   var newParent = document.getElementById(token.path[diceValue + currPos]);
+  //   token.position = diceValue + currPos;
+  //   console.log(newParent);
+  //   newParent.appendChild(DOMElem);
+  //   token.DOMParent = newParent;
+  // }
+
+}
+
+function Dice(){
+  this.faceValue = -1;
+}
+
+function Turn(){
+  this.dice = new Dice();
+  this.currentPlayer = 0;
 }
 
 function Player(color){
@@ -48,6 +82,14 @@ function Token(color, id){
 function Board(nOP){
   this.numberOfPlayers = nOP;
   this.colors = ["blue","red","yellow","green"];
+  this.tokenList = {};
+  this.turn = new Turn();
+}
+
+function Tile(tNo){
+  this.tileNumber = tNo;
+  this.hasToken = false;
+  this.token = null;
 }
 
 Board.prototype.drawBoard = function(){
@@ -63,23 +105,25 @@ Board.prototype.drawBoard = function(){
 
   this.yards = [blue,red,yellow,green];
   this.listPF = [hPF1, vPF1, hPF2, vPF2];
+  this.tileList = [];
 
   var tileNo = 1;
   for(var i = 0; i < 4; i++){
     var PF = this.listPF[i];
     for(var j = 0; j < 18; j++){
       var tile = document.createElement("div");
+      var tl = new Tile(tileNo);
       tile.classList.add("tile");
       tile.setAttribute("id", tileNo);
       tileNo += 1;
       PF.appendChild(tile);
+      this.tileList.push(tl);
     }
   }
 }
 
 Board.prototype.initPlayers = function(){
   this.playerList = [];
-  this.tokenList = {};
   for(var i = 0; i < this.numberOfPlayers; i++){
     var pl = new Player(this.colors[i]);
     this.playerList.push(pl);
@@ -93,21 +137,18 @@ Board.prototype.initTokens = function(){
     for(var j = 0; j < 4; j++){
       var tokenElem = document.createElement("div");
       tokenElem.classList.add("token");
-      tokenElem.addEventListener("click", function(e){
-        tokenClicked(e);
-      });
       tokenElem.setAttribute("id", j+"_"+i+"_"+player.color);
       tokenElem.style.backgroundColor = player.color;
       yard.appendChild(tokenElem);
-      var tk = player.tokens[i];
+      var tk = player.tokens[j];
       tk.DOMElem = tokenElem;
       tk.DOMParent = yard;
       this.tokenList[j+"_"+i+"_"+player.color] = tk;
+      tokenElem.addEventListener("click", function(e){
+        tokenClicked(e);
+      });
     }
   }
 }
 
-var board = new Board(4);
-board.drawBoard();
-board.initPlayers();
-board.initTokens();
+var board = null;

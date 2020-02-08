@@ -30,13 +30,19 @@
 }
 
 .dashInner{
-  width: 28vh;
+  width: 20vh;
   height: 50vh;
   background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.dashInput{
+  width: 18vh;
+  border-radius: 5px;
+  margin-bottom: 1vh;
 }
 
 .yard{
@@ -106,4 +112,9 @@
 
 .diceButton{
   height: 5vh;
+  display: none;
+}
+
+.diceFace{
+  display: none;
 }
