@@ -11,7 +11,7 @@
   width: 80vh;
   background-color: black;
   position: absolute;
-  margin-left: 20vw;
+  margin-left: 10vw;
   margin-top: 10vh;
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +22,7 @@
   width: 20vh;
   background-color: white;
   position: absolute;
-  margin-left: 70vw;
+  margin-left: 60vw;
   margin-top: 10vh;
   display:flex;
   justify-content: center;
@@ -31,7 +31,7 @@
 
 .dashInner{
   width: 20vh;
-  height: 50vh;
+  height: 60vh;
   background-color: red;
   display: flex;
   justify-content: center;
@@ -72,6 +72,30 @@
   margin-top: 2vh;
 }
 
+.blueTile{
+  background-color: #8989ff;
+  opacity: 60;
+}
+
+.redTile{
+  background-color: #e47d7d;
+  opacity: 60;
+}
+
+.yellowTile{
+  background-color: #dada75;
+  opacity: 60;
+}
+
+.greenTile{
+  background-color: #76cc76;
+  opacity: 60;
+}
+
+.whiteTile{
+  background-color: white;
+}
+
 .token{
   height: 4vh;
   width: 4vh;
@@ -104,7 +128,6 @@
 .tile{
   height: 4.8vh;
   width: 4.8vh;
-  background-color: white;
   border: 0.24vh;
   border-color: black;
   border-style: solid;
@@ -117,4 +140,18 @@
 
 .diceFace{
   display: none;
+}
+
+.logs{
+  height: 80vh;
+  width: 30vh;
+  margin-left: 80vw;
+  margin-top: 10vh;
+  background-color: white;
+  position: absolute;
+  overflow: scroll;
+}
+
+#prev{
+  display:none;
 }

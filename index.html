@@ -35,11 +35,16 @@
       </div>
       <div class="dashboard">
         <div class="dashInner">
+          <h3 id="prev">Previous</h3>
+          <h3 class="prevDice" id="PDF"></h3>
+          <h3 class="diceFace" id="PName"></h3>
           <input type="text" class="dashInput" id="dashIP" placeholder="Number of players">
-          <button class="startButton" onclick="startGame()">START</button>
-          <h1 class="diceFace" id="DF"></h1>
-          <button class="diceButton" onclick="rollDice()">Roll Dice</button>
+          <button class="startButton" id="SB" onclick="startGame()">START</button>
+          <h3 class="diceFace" id="DF"></h3>
+          <button class="diceButton" id="DFB" onclick="rollDice()">Roll Dice</button>
         </div>
+      </div>
+      <div class="logs" id="lgCtr">
       </div>
     </div>
     <script type="text/javascript" src="js/board.js"></script>
